@@ -8,46 +8,46 @@
 /* Définition des polices personnalisées */
 @font-face
 {
-    font-family: 'BallparkWeiner';
-    src: url('polices/ballpark.eot');
-    src: url('polices/ballpark.eot?#iefix') format('embedded-opentype'),
-         url('polices/ballpark.woff') format('woff'),
-         url('polices/ballpark.ttf') format('truetype'),
-         url('polices/ballpark.svg#BallparkWeiner') format('svg');
+    font-family: intro,helvetica,sans-serif;
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face
 {
-    font-family: 'Dayrom';
-    src: url('polices/dayrom.eot');
-    src: url('polices/dayrom.eot?#iefix') format('embedded-opentype'),
-         url('polices/dayrom.woff') format('woff'),
-         url('polices/dayrom.ttf') format('truetype'),
-         url('polices/dayrom.svg#Dayrom') format('svg');
+    font-family: intro,helvetica,sans-serif;
     font-weight: normal;
     font-style: normal;
 }
 
+/* pour maîtriser width et flex-basis */
+* {
+  box-sizing: border-box; 
+}
+
+/* correction bug IE de min-height non appliqué à body */
+html {
+  display: flex; 
+  flex-direction: column; 
+}
 
 /* Eléments principaux de la page */
 body
 {
-    /*background: url('images/fond_jaune.png');*/
     background-color: #EEF1F2;
-    font-family: 'Trebuchet MS', Arial, sans-serif;
+    font-family: intro,helvetica,sans-serif;
     color: #181818;
-    /*color: #EEF1F2;*/
 }
 #bloc_page
 {
     width: 900px;
     margin: auto;
+    background-color: #ffffff;
 }
-section h1, footer h1, nav a
+/*section h1, footer h1, nav a*/
+section h1, footer h1
 {
-    font-family: Dayrom, serif;
+    font-family: intro,helvetica,sans-serif;
     font-weight: normal;
     text-transform: uppercase;
 }
@@ -57,38 +57,13 @@ header
 {
     background: url('images/separateur.png') repeat-x bottom;
     display: flex;
-    /*justify-content: space-between;
-    align-items: flex-end;*/
-    flex-direction: column;
+    width: 100%;    
+    margin-bottom: 0px;
+    padding: 0 50px 10px 0;
 }
-#titre_principal
-{
-    display: flex;
-    /*flex-direction: column;*/
-    flex-direction: row;
-}
-#sous_titre_principal
-{
-    display: flex;
-    /*flex-direction: column;*/
-    flex-direction: row;
-    align-items: flex-end;
-}
-#sous_titre_principal h2
-{
-    font-family: Dayrom, serif;
-    font-size: 1.1em;
-    margin-top: 0px;
-    font-weight: normal;
-    /*align-items: flex-end;*/
-}
-
-
 #logo
 {
-    display: flex;
-    flex-direction: row;
-    /*align-items: baseline;*/
+    display: flex;  
     align-items: center;
 }
 #logo img
@@ -96,19 +71,28 @@ header
     width: 200px;
     height: 82px;
 }
-header h1
+#titre
 {
-    font-family: 'BallparkWeiner', serif;
-    font-size: 2.5em;
+    font-family: intro,helvetica,sans-serif;
+    text-align: justify;
+    width: 100%;
+    margin: 10px 0 0 30px;
+}
+#titre h1
+{
+    font-size: 2em;
     font-weight: normal;
     margin: 0 0 0 30px;
 }
-header h2
+#titre h2
 {
-    font-family: Dayrom, serif;
-    font-size: 1.1em;
+    text-align: right;
     margin-top: 0px;
+    padding : 0 50px 0 0;
+    
+    font-size: 1.1em;
     font-weight: normal;
+    font-style: italic;
 }
 
 /* Navigation */
@@ -135,33 +119,12 @@ nav a:hover
 }
 
 /* Masternav */
-#masternav_bis
+#masternav
 {
     display: flex;
     flex-direction: column;
+    background: url('images/separateur.png') repeat-x bottom;
 }
-#masternav_bis nav ul
-{
-    list-style-type: none;
-    display: flex;
-}
-#masternav_bis nav li
-{
-    margin-right: 10px;
-}
-#masternav_bis nav a
-{
-    font-size: 0.8em;
-    color: #181818;
-    padding-bottom: 1px;
-    text-decoration: none;
-}
-#masternav_bis nav a:hover
-{
-    color: #760001;
-    border-bottom: 3px solid #760001;
-}
-
 
 /* Bannière */
 #banniere_image
@@ -169,7 +132,7 @@ nav a:hover
     margin-top: 15px;
     height: 200px;
     border-radius: 5px;
-    background: url('images/sanfrancisco.jpg') no-repeat;
+    background: url('images/transport.png') no-repeat;
     position: relative;
     box-shadow: 0px 4px 4px #1c1a19;
     margin-bottom: 25px;
@@ -179,14 +142,13 @@ nav a:hover
     position: absolute;
     bottom: 0;
     border-radius: 0px 0px 5px 5px;
-    width: 99.5%;
+    width: 100%;
     height: 33px;
     padding-top: 15px;
     padding-left: 4px;
     background-color: rgba(24,24,24,0.8);
     color: white;
     font-size: 0.8em;
-    
 }
 .bouton_rouge
 {
@@ -214,10 +176,12 @@ section
     display: flex;
     margin-bottom: 20px;
 }
+
 article, aside
 {
     text-align: justify;
 }
+
 article
 {
     margin-right: 20px;
@@ -243,7 +207,11 @@ aside
     border-radius: 5px;
     padding: 10px;
     color: white;
-    font-size: 0.9em;
+    font-size: 0.8em;
+}
+aside h2
+{
+    font-size: 1.1em;
 }
 
 #fleche_bulle
@@ -253,14 +221,39 @@ aside
     left: -12px;
 }
 
-#photo_zozor
+/* imagettet cartes dynamiques */
+#conteneur
 {
-    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
 }
-
-#photo_zozor img
+#conteneur h1
 {
-    border: 1px solid #181818;
+    font-size: 0.8em;
+    background-color: #C3002F;
+    color: #ffffff;  
+    vertical-align: middle;
+    margin: 0 0 0 0;
+    text-transform: none;
+}
+.element
+{
+    border: 1px solid;
+    margin: 2px 2px 2px 2px;
+    padding: 0 0 0 0;
+}
+.element img
+{
+    vertical-align: middle;
+    width: 190px;
+    height: 140px;
+}
+#conteneur .ico_titre
+{
+    width: 25px;
+    height: 25px;
+    margin-right: 5px;
 }
 
 aside img
@@ -269,63 +262,26 @@ aside img
 }
 
 /* Footer */
-
 footer
 {
     display: flex;
-    background:  url('images/ico_top.png') no-repeat top center, url('images/separateur.png') repeat-x top, url('images/ombre.png') repeat-x top;
-    padding-top: 25px;
-}
-
-footer p, footer ul
-{
+    flex-direction: column;
+    background:   url('images/ico_top.png') no-repeat top center, url('images/separateur.png') repeat-x top, url('images/ombre.png') repeat-x top;
+    padding-top: 35px;
+    text-align: center;
     font-size: 0.8em;
 }
-
+footer p
+{
+    font-size: 1em;
+}
 footer h1
 {
     font-size: 1.1em;
 }
-
-
-#tweet
+footer div
 {
-    width: 28%;
-}
-
-#mes_photos
-{
-    width: 35%;
-}
-
-#mes_amis
-{
-    width: 31%;
-}
-
-#mes_photos img
-{
-    border: 1px solid #181818;
-    margin-right: 2px;
-}
-
-#listes_amis
-{
-    display: flex;
-    justify-content: space-between;
-    margin-top: 0;
-}
-
-#mes_amis ul
-{
-    list-style-image: url('images/ico_liensexterne.png');
-    padding-left: 2px;
-}
-
-#mes_amis a
-{
-    text-decoration: none;
-    color: #760001;
+    width: 100%;
 }
 
 
@@ -337,12 +293,15 @@ footer h1
     {
         width: auto;
     }
-    
+        
     #banniere_image
     {
         display: none;
     }
-    
+    header
+    {
+        flex-direction: column;
+    }  
     nav
     {
         width: auto;
@@ -385,13 +344,6 @@ footer h1
         display: none;
     }
 
-    #photo_zozor img
-    {
-        width: 110px;
-        float: right;
-        margin-left: 15px;
-    }
-
     aside p:last-child
     {
         text-align: center;
@@ -399,7 +351,107 @@ footer h1
 }
 
 /* */
-@media all and (max-device-width: 480px)
+@media all and (max-width: 480px)
 {
     /* Vos règles CSS pour les mobiles ici */
+    #bloc_page
+    {
+        width: auto;
+	font-size: 1em;
+    }
+        
+    #banniere_image
+    {
+        display: none;
+    }
+    header
+    {
+        flex-direction: column;
+	background: url('images/separateur.png') repeat-x bottom;
+	width: 100%;    
+	margin-bottom: 0px;
+    }
+    section h1, footer h1
+    {
+	font-size: 0.8em;
+    }
+    aside
+    {
+	font-size: 0.7em;
+    }
+    aside h1
+    {
+	font-size: 1em;
+    }
+    aside h2
+    {
+	font-size: 1em;
+    }
+    footer
+    {
+	font-size: 0.7em;
+    }
+    #titre
+    {
+	font-size: 0.8em;
+	margin: 0 0 0 0;
+    }
+    #titre h1
+    {
+	padding : 5px 0 0 0;
+	font-size: 1em;
+    }
+    #titre h2
+    {
+	text-align: right;
+	padding : 0 0 0 0;
+	font-size: 0.8em;
+    }
+    #sous_titre
+    {
+	padding: 0 0 0 0;
+    }
+    #sous_titre h1
+    {
+	font-size: 1em;
+    }
+    #sous_titre2 h2
+    {
+	font-size: 0.8em;
+    }
+    
+    #logo img
+    {
+	width: 100px;
+	height: 41px;
+    }
+    
+    /* Masternav */
+    #masternav
+    {
+	font-size: 0.8em;
+    }
+    
+    #conteneur .ico_titre
+    {
+	width: 20px;
+	height: 20px;
+	margin-right: 2px;
+    }
+    #conteneur h1
+    {
+	font-size: 0.6em;
+    }
+    .ico_categorie
+    {
+	vertical-align: middle;
+	margin-right: 8px;
+	width: 23px;
+	height: 27px;
+    }
+    .element img
+    {
+	width: 150px;
+	height: 100px;
+    }
 }
